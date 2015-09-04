@@ -44,10 +44,10 @@ func GetCurrentFile() string {
 	return filename
 }
 
-// GetCurrentDir return the directory of the current file
+// GetCurrentFileDir return the directory of the current file
 func GetCurrentFileDir() string {
-	curFilename := GetCurrentFile()
-	return path.Dir(curFilename)
+	_, filename, _, _ := runtime.Caller(1)
+	return path.Dir(filename)
 }
 
 func getFileDir(path string) (os.FileInfo, error) {
